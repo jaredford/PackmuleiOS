@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SimpleBluetoothIO.writeValue(value : Int8) -&gt; ():BluetoothService.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "writableCharacteristic">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

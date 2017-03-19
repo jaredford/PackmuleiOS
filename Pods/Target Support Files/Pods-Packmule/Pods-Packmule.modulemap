@@ -1,0 +1,6 @@
+framework module Pods_Packmule {
+  umbrella header "Pods-Packmule-umbrella.h"
+
+  export *
+  module * { export * }
+}
