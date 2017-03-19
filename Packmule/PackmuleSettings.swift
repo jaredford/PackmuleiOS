@@ -8,6 +8,11 @@
 
 import Foundation
 import UIKit
+import Darwin
 
-class PackmuleSettings: UIViewController {
+class PackmuleSettings{
+    class func PackmuleSetting(){
+        UserDefaults.standard.setValue("hello", forKey: "world")
+        print(UserDefaults.standard.value(forKey: "world") ?? "error")
+    }
 }

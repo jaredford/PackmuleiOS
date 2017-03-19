@@ -16,8 +16,7 @@ enum ReceivedMessageOption: Int {
     case none,
     newline
 }
-final class MainViewController: UIViewController, BluetoothSerialDelegate {
-    @IBOutlet weak var navBar: UINavigationBar!
+final class MainViewController: UIViewController,BluetoothSerialDelegate {
     @IBOutlet weak var hornButton: UIButton!
     @IBOutlet weak var connectButton: UIBarButtonItem!
     var scene: GameScene!
@@ -28,9 +27,16 @@ final class MainViewController: UIViewController, BluetoothSerialDelegate {
         let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "leftNavController") as! UISideMenuNavigationController
         menuLeftNavigationController.leftSide = true
         SideMenuManager.menuLeftNavigationController = menuLeftNavigationController
-        SideMenuManager.menuAddPanGestureToPresent(toView: self.navBar)
+        SideMenuManager.menuAddPanGestureToPresent(toView: (self.navigationController?.navigationBar)!)
         SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.view, forMenu: UIRectEdge.left)
         SideMenuManager.menuPresentMode = .viewSlideInOut
+        // Style the navigation bar
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.barStyle = .black
+        let color  = UIColor(colorLiteralRed: 0.05, green: 0.10, blue: 0.15, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = color
+        
         // Setup the joystick
         scene = GameScene(size: self.view.bounds.size)
         if let skView = self.view as? SKView {
@@ -58,14 +64,10 @@ final class MainViewController: UIViewController, BluetoothSerialDelegate {
     @IBAction func hornPress(_ sender: UIButton) {
         serial.sendMessageToDevice("h\n")
     }
-    @IBAction func hamburgerPress(_ sender: UIBarButtonItem) {
-            present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
+    @IBAction func hamburgerPress(_ sender: UIBarButtonItem) {present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
     }
     func reloadView() {
         // in case we're the visible view again
-        navBar.barStyle = .black
-        let color  = UIColor(colorLiteralRed: 0.12, green: 0.25, blue: 0.30, alpha: 1)
-        navBar.barTintColor = color
             serial.delegate = self
         if serial.isReady {
             connectButton.title = "Disconnect"

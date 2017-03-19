@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F26BF211E7E591500C65D03 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F26BF201E7E591500C65D03 /* SettingsViewController.swift */; };
 		7F874E421E7E26D9006BD397 /* RootNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F874E411E7E26D9006BD397 /* RootNavController.swift */; };
 		7FDD3EDE1E6BCEE3000AD49D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3EDD1E6BCEE3000AD49D /* AppDelegate.swift */; };
 		7FDD3EE01E6BCEE3000AD49D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD3EDF1E6BCEE3000AD49D /* GameScene.sks */; };
@@ -38,6 +39,7 @@
 		003B9BD83A479E3399140EB2 /* Pods-PackmuleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PackmuleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PackmuleTests/Pods-PackmuleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1F0E3567B7B36A2BAB27F3A4 /* Pods_PackmuleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PackmuleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A71065A8A0B78DB1B6428B4 /* Pods-Packmule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Packmule.release.xcconfig"; path = "Pods/Target Support Files/Pods-Packmule/Pods-Packmule.release.xcconfig"; sourceTree = "<group>"; };
+		7F26BF201E7E591500C65D03 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7F874E411E7E26D9006BD397 /* RootNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavController.swift; sourceTree = "<group>"; };
 		7FDD3EDA1E6BCEE3000AD49D /* Packmule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Packmule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FDD3EDD1E6BCEE3000AD49D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				7FDD3F031E6BCFC6000AD49D /* AnalogJoystick.swift */,
 				7FFA79EB1E750107000AA4CA /* BluetoothSerial.swift */,
 				7FF139DE1E7E2C0F005D5D17 /* PackmuleSettings.swift */,
+				7F26BF201E7E591500C65D03 /* SettingsViewController.swift */,
 			);
 			path = Packmule;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				7FDD3EE61E6BCEE3000AD49D /* MainViewController.swift in Sources */,
 				7FDD3EDE1E6BCEE3000AD49D /* AppDelegate.swift in Sources */,
 				7FFA79EC1E750107000AA4CA /* BluetoothSerial.swift in Sources */,
+				7F26BF211E7E591500C65D03 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
