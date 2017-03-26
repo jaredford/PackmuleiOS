@@ -1,25 +1,30 @@
 import SpriteKit
 import UIKit
 import CoreBluetooth
-class GameScene: SKScene {
+class JoystickScene: SKScene {
     
     let moveAnalogStick = AnalogJoystick(diameters: (300,50), colors: (UIColorFromRGB(rgbValue : 0xf2b807), UIColorFromRGB(rgbValue : 0xf40077)))
     //let moveAnalogStick = AnalogJoystick(diameters: (300,100), images: (UIImage(named: "image_button_bg"), UIImage(named: "image_button")))
     let arduinoTxt = SKLabelNode(text: "")
-    let infoText = SKLabelNode(text: "Stopped")
+    let infoText = SKLabelNode(text: "")
     override func didMove(to view: SKView) {
         /* Setup your scene here */
         //MARK: Handlers begin
         addLabels(view: view)
         moveAnalogStick.trackingHandler = {[unowned self] data in
+            if(UserDefaults.standard.bool(forKey: "manual_mode")) {
             self.infoText.text = data.description
             _ = MainViewController.sendMessage(message: "\(data.sendingMessage)\n")
+            }
         }
         
         moveAnalogStick.stopHandler = {
+            if(UserDefaults.standard.bool(forKey: "manual_mode")){
             self.infoText.text = "Stopped"
             _ = MainViewController.sendMessage(message: "127127\n")
-            
+            }else {
+            self.infoText.text = "Following"
+            }
         }
         
         //MARK: Handlers end
@@ -60,7 +65,7 @@ class GameScene: SKScene {
         addChild(moveAnalogStick)
     }
     func toOtherScene() {
-        let newScene = GameScene()
+        let newScene = JoystickScene()
         newScene.scaleMode = .resizeFill
         let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
         view?.presentScene(newScene, transition: transition)

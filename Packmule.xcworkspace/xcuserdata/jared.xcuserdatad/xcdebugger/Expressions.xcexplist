@@ -3,10 +3,29 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "RootNavController.tableView(UITableView, willDisplay : UITableViewCell, forRowAt : IndexPath) -&gt; ():RootNavController.swift">
+      </ContextState>
+      <ContextState
          contextName = "MainViewController.viewDidLoad() -&gt; ():MainViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "self">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RootNavController.tableView(UITableView, didSelectRowAt : IndexPath) -&gt; ():RootNavController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.alert.textFields?[0].text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JoystickScene.(didMove(to : SKView) -&gt; ()).(closure #2):GameScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.bool(forKey: &quot;manualMode&quot;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

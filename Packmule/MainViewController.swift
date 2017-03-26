@@ -19,17 +19,20 @@ enum ReceivedMessageOption: Int {
 final class MainViewController: UIViewController,BluetoothSerialDelegate {
     @IBOutlet weak var hornButton: UIButton!
     @IBOutlet weak var connectButton: UIBarButtonItem!
-    var scene: GameScene!
+    var scene: JoystickScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Define the menus
+        SideMenuManager.menuEnableSwipeGestures = false
         let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "leftNavController") as! UISideMenuNavigationController
         menuLeftNavigationController.leftSide = true
         SideMenuManager.menuLeftNavigationController = menuLeftNavigationController
         SideMenuManager.menuAddPanGestureToPresent(toView: (self.navigationController?.navigationBar)!)
         SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.view, forMenu: UIRectEdge.left)
         SideMenuManager.menuPresentMode = .viewSlideInOut
+        SideMenuManager.menuWidth = UIScreen.main.bounds.width * 0.83
+        
         // Style the navigation bar
         let view = UIView()
         view.backgroundColor = UIColor.white
@@ -38,7 +41,7 @@ final class MainViewController: UIViewController,BluetoothSerialDelegate {
         self.navigationController?.navigationBar.barTintColor = color
         
         // Setup the joystick
-        scene = GameScene(size: self.view.bounds.size)
+        scene = JoystickScene(size: self.view.bounds.size)
         if let skView = self.view as? SKView {
             
             skView.showsFPS = false
@@ -71,6 +74,7 @@ final class MainViewController: UIViewController,BluetoothSerialDelegate {
             serial.delegate = self
         if serial.isReady {
             connectButton.title = "Disconnect"
+            syncManualMode()
             hornButton.isEnabled = true
             connectButton.isEnabled = true
         } else if serial.centralManager.state == .poweredOn {
@@ -82,6 +86,9 @@ final class MainViewController: UIViewController,BluetoothSerialDelegate {
             hornButton.isEnabled = false
             connectButton.isEnabled = false
         }
+    }
+    func syncManualMode() {
+        _ = MainViewController.sendMessage(message: UserDefaults.standard.bool(forKey: "manual_mode") ? "m\n" : "a\n")
     }
     //MARK: BluetoothSerialDelegate
     
@@ -128,7 +135,7 @@ final class MainViewController: UIViewController,BluetoothSerialDelegate {
             serial.startScan()
             connectButton.title = "Scanning..."
             connectButton.isEnabled = false
-            Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(MainViewController.scanTimeOut), userInfo: nil, repeats: false)
+            Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(MainViewController.scanTimeOut), userInfo: nil, repeats: false)
         } else {
             serial.disconnect()
             reloadView()
@@ -143,7 +150,7 @@ final class MainViewController: UIViewController,BluetoothSerialDelegate {
         serial.sendMessageToDevice(message)
         return true
     }
-    /// Should be called 10s after we've begun scanning
+    /// Should be called 5s after we've begun scanning
     func scanTimeOut() {
         reloadView()
         scene.arduinoTxt.text = ""

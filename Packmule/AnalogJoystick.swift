@@ -38,7 +38,7 @@ public struct AnalogJoystickData: CustomStringConvertible {
     }
     
     public var sendingMessage: String {
-        let scalingFactor = 0.25
+        let scalingFactor = (UserDefaults.standard.value(forKey: "max_speed") as! Double? ?? 50) / 100
         var speed = Double(sqrt(pow(velocity.x,2) + pow(velocity.y,2)))
         speed = velocity.y > 0 ? speed : -1 * speed
         speed = speed * scalingFactor * 127 / 150 + 127
