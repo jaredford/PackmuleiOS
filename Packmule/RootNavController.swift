@@ -15,7 +15,7 @@ class RootNavController : UITableViewController, UIPopoverPresentationController
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var speedSlider: UISlider!
     @IBOutlet weak var nameLabel: UILabel!
-    let nameDialog = UIAlertController(title: "Name Your Packmule", message: "Enter a name", preferredStyle: UIAlertControllerStyle.alert)  
+    let nameDialog = UIAlertController(title: "Name Your Packmule", message: "Enter a name", preferredStyle: UIAlertControllerStyle.alert)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,10 @@ class RootNavController : UITableViewController, UIPopoverPresentationController
     func stateChanged(switchState: UISwitch) {
        _ = MainViewController.sendMessage(message: switchState.isOn ? "m\n" : "a\n")
         UserDefaults.standard.set(switchState.isOn, forKey: "manual_mode")
+        let nc = NotificationCenter.default
+        nc.post(name:Notification.Name(rawValue:"ModeChanged"),
+                object: nil,
+                userInfo: ["manual":switchState.isOn])
     }
     func sliderMoved(sliderState: UISlider) {
         UserDefaults.standard.set(Int(ceil(sliderState.value)), forKey: "max_speed")

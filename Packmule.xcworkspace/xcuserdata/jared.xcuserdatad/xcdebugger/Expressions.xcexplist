@@ -9,6 +9,9 @@
          contextName = "MainViewController.viewDidLoad() -&gt; ():MainViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "UserDefaults.standard.bool(forKey: &quot;manual_mode&quot;)">
+            </PersistentString>
+            <PersistentString
                value = "self">
             </PersistentString>
          </PersistentStrings>
@@ -18,6 +21,17 @@
          <PersistentStrings>
             <PersistentString
                value = "self.alert.textFields?[0].text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RootNavController.stateChanged(switchState : UISwitch) -&gt; ():RootNavController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "switchState.isOn">
+            </PersistentString>
+            <PersistentString
+               value = "UserDefaults.standard.bool(forKey: &quot;manual_mode&quot;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

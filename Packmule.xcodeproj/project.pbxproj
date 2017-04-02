@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		7F874E421E7E26D9006BD397 /* RootNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F874E411E7E26D9006BD397 /* RootNavController.swift */; };
 		7FDD3EDE1E6BCEE3000AD49D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3EDD1E6BCEE3000AD49D /* AppDelegate.swift */; };
-		7FDD3EE01E6BCEE3000AD49D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD3EDF1E6BCEE3000AD49D /* GameScene.sks */; };
 		7FDD3EE21E6BCEE3000AD49D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD3EE11E6BCEE3000AD49D /* Actions.sks */; };
-		7FDD3EE41E6BCEE3000AD49D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3EE31E6BCEE3000AD49D /* GameScene.swift */; };
+		7FDD3EE41E6BCEE3000AD49D /* JoystickScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3EE31E6BCEE3000AD49D /* JoystickScene.swift */; };
 		7FDD3EE61E6BCEE3000AD49D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDD3EE51E6BCEE3000AD49D /* MainViewController.swift */; };
 		7FDD3EE91E6BCEE3000AD49D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD3EE71E6BCEE3000AD49D /* Main.storyboard */; };
 		7FDD3EEB1E6BCEE3000AD49D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD3EEA1E6BCEE3000AD49D /* Assets.xcassets */; };
@@ -40,9 +39,8 @@
 		7F874E411E7E26D9006BD397 /* RootNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavController.swift; sourceTree = "<group>"; };
 		7FDD3EDA1E6BCEE3000AD49D /* Packmule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Packmule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FDD3EDD1E6BCEE3000AD49D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7FDD3EDF1E6BCEE3000AD49D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		7FDD3EE11E6BCEE3000AD49D /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		7FDD3EE31E6BCEE3000AD49D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		7FDD3EE31E6BCEE3000AD49D /* JoystickScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickScene.swift; sourceTree = "<group>"; };
 		7FDD3EE51E6BCEE3000AD49D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7FDD3EE81E6BCEE3000AD49D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7FDD3EEA1E6BCEE3000AD49D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,9 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				7FDD3EDD1E6BCEE3000AD49D /* AppDelegate.swift */,
-				7FDD3EDF1E6BCEE3000AD49D /* GameScene.sks */,
 				7FDD3EE11E6BCEE3000AD49D /* Actions.sks */,
-				7FDD3EE31E6BCEE3000AD49D /* GameScene.swift */,
+				7FDD3EE31E6BCEE3000AD49D /* JoystickScene.swift */,
 				7FDD3EE51E6BCEE3000AD49D /* MainViewController.swift */,
 				7FDD3EE71E6BCEE3000AD49D /* Main.storyboard */,
 				7F874E411E7E26D9006BD397 /* RootNavController.swift */,
@@ -238,7 +235,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FDD3EE91E6BCEE3000AD49D /* Main.storyboard in Resources */,
-				7FDD3EE01E6BCEE3000AD49D /* GameScene.sks in Resources */,
 				7FDD3EEB1E6BCEE3000AD49D /* Assets.xcassets in Resources */,
 				7FDD3EEE1E6BCEE3000AD49D /* LaunchScreen.storyboard in Resources */,
 				7FDD3EE21E6BCEE3000AD49D /* Actions.sks in Resources */,
@@ -352,7 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FDD3EE41E6BCEE3000AD49D /* GameScene.swift in Sources */,
+				7FDD3EE41E6BCEE3000AD49D /* JoystickScene.swift in Sources */,
 				7F874E421E7E26D9006BD397 /* RootNavController.swift in Sources */,
 				7FDD3F041E6BCFC6000AD49D /* AnalogJoystick.swift in Sources */,
 				7FDD3EE61E6BCEE3000AD49D /* MainViewController.swift in Sources */,

@@ -13,25 +13,25 @@ public struct AnalogJoystickData: CustomStringConvertible {
     
     public var description: String {
         let angle = Double(angular)
-        if(angle > -M_PI_4 / 2.0 && angle < M_PI_4 / 2.0){
+        if(angle > -.pi/4 / 2.0 && angle < .pi/4 / 2.0){
             return "Forward"
         }
-        if(angle >= M_PI_4 / 2.0 && angle < 3.0 / 2.0 * M_PI_4){
+        if(angle >= .pi/4 / 2.0 && angle < 3.0 / 2.0 * .pi/4){
             return "Forward Left"
         }
-        if(angle >= 3.0 / 2.0 * M_PI_4 && angle <  5.0 / 2.0 * M_PI_4){
+        if(angle >= 3.0 / 2.0 * .pi/4 && angle <  5.0 / 2.0 * .pi/4){
             return "Left"
         }
-        if(angle >= 5.0 / 2.0 * M_PI_4 && angle <  7.0 / 2.0 * M_PI_4){
+        if(angle >= 5.0 / 2.0 * .pi/4 && angle <  7.0 / 2.0 * .pi/4){
             return "Reverse Left"
         }
-        if(angle <= -M_PI_4 / 2.0 && angle >  -3.0 / 2.0 * M_PI_4){
+        if(angle <= -.pi/4 / 2.0 && angle >  -3.0 / 2.0 * .pi/4){
             return "Forward Right"
         }
-        if(angle <= -3.0 / 2.0 * M_PI_4 && angle >  -5.0 / 2.0 * M_PI_4){
+        if(angle <= -3.0 / 2.0 * .pi/4 && angle >  -5.0 / 2.0 * .pi/4){
             return "Right"
         }
-        if(angle <= -5.0 / 2.0 * M_PI_4 && angle >  -7.0 / 2.0 * M_PI_4){
+        if(angle <= -5.0 / 2.0 * .pi/4 && angle >  -7.0 / 2.0 * .pi/4){
             return "Reverse Right"
         }
         return "Reverse"

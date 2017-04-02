@@ -19,10 +19,14 @@ enum ReceivedMessageOption: Int {
 final class MainViewController: UIViewController,BluetoothSerialDelegate {
     @IBOutlet weak var hornButton: UIButton!
     @IBOutlet weak var connectButton: UIBarButtonItem!
+    let myNotification = Notification.Name(rawValue:"ModeChanged")
     var scene: JoystickScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Setup notification listener
+        let nc = NotificationCenter.default
+        nc.addObserver(forName:myNotification, object:nil, queue:nil, using:catchNotification)
         // Define the menus
         SideMenuManager.menuEnableSwipeGestures = false
         let menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "leftNavController") as! UISideMenuNavigationController
@@ -51,6 +55,8 @@ final class MainViewController: UIViewController,BluetoothSerialDelegate {
             /* Set the scale mode to scale to fit the window */
             //scene.scaleMode = .AspectFill
             skView.presentScene(scene)
+            UserDefaults.standard.set(true, forKey: "manual_mode")
+            scene.infoText.text = "Stopped"
         }
         // init serial
         serial = BluetoothSerial(delegate: self)
@@ -60,7 +66,20 @@ final class MainViewController: UIViewController,BluetoothSerialDelegate {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-    
+    func catchNotification(notification:Notification) -> Void {
+        guard let userInfo = notification.userInfo,
+            let manual  = userInfo["manual"] as? Bool
+            else {
+                print("No userInfo found in notification")
+                return
+        }
+        if manual{
+            scene.infoText.text = "Stopped"
+        }
+        else{
+            scene.infoText.text = "Following"
+        }
+    }
     override var prefersStatusBarHidden : Bool {
         return true
     }

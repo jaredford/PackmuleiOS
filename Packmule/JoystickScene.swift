@@ -16,14 +16,18 @@ class JoystickScene: SKScene {
             self.infoText.text = data.description
             _ = MainViewController.sendMessage(message: "\(data.sendingMessage)\n")
             }
+            else {
+                self.infoText.text = "Following"
+            }
         }
         
         moveAnalogStick.stopHandler = {
             if(UserDefaults.standard.bool(forKey: "manual_mode")){
-            self.infoText.text = "Stopped"
-            _ = MainViewController.sendMessage(message: "127127\n")
-            }else {
-            self.infoText.text = "Following"
+                self.infoText.text = "Stopped"
+                _ = MainViewController.sendMessage(message: "127127\n")
+            }
+            else {
+                self.infoText.text = "Following"
             }
         }
         
@@ -31,10 +35,9 @@ class JoystickScene: SKScene {
         
         view.isMultipleTouchEnabled = true
     }
-    
     func addLabels (view: SKView) {
         moveAnalogStick.position = CGPoint(x: frame.width / 2, y: frame.height * 0.4)
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.width / 2, y: (frame.height * 0.6)), radius: CGFloat(150), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.width / 2, y: (frame.height * 0.6)), radius: CGFloat(150), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circlePath.cgPath
         
@@ -64,6 +67,7 @@ class JoystickScene: SKScene {
         addChild(self.arduinoTxt)
         addChild(moveAnalogStick)
     }
+    
     func toOtherScene() {
         let newScene = JoystickScene()
         newScene.scaleMode = .resizeFill
