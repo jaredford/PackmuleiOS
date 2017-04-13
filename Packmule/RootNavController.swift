@@ -16,6 +16,7 @@ class RootNavController : UITableViewController, UIPopoverPresentationController
     @IBOutlet weak var speedSlider: UISlider!
     @IBOutlet weak var nameLabel: UILabel!
     let nameDialog = UIAlertController(title: "Name Your Packmule", message: "Enter a name", preferredStyle: UIAlertControllerStyle.alert)
+    let speedDialog = UIAlertController(title: "Maximum Speed", message: "Set Max Speed", preferredStyle: UIAlertControllerStyle.alert)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +27,21 @@ class RootNavController : UITableViewController, UIPopoverPresentationController
         nameDialog.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in UserDefaults.standard.set(self.nameDialog.textFields?[0].text, forKey: "packmule_name")
         self.nameLabel.text = self.nameDialog.textFields?[0].text}))
         nameDialog.addTextField(configurationHandler: {(textField: UITextField!) in
-            textField.placeholder = "Enter Name"
-            textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+            textField.placeholder = "Enter a Name"
             textField.text = (UserDefaults.standard.value(forKey: "packmule_name") ?? "Packmule") as? String
+            textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+        })
+        
+        speedDialog.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        speedDialog.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in UserDefaults.standard.set(Float((self.speedDialog.textFields?[0].text)!), forKey: "max_speed")
+            self.speedSlider.value = UserDefaults.standard.value(forKey: "max_speed") as! Float? ?? 50
+            self.speedLabel.text = "Max Speed: \(Int(ceil(self.speedSlider.value)))%"}))
+        speedDialog.addTextField(configurationHandler: {(textField: UITextField!) in
+            textField.placeholder = ""
+            textField.clearsOnBeginEditing = true;
+            textField.keyboardType = UIKeyboardType.numberPad
+            textField.text = (UserDefaults.standard.value(forKey: "max_speed") ?? 50) as? String
+            textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
         })
         nameLabel.text = (UserDefaults.standard.value(forKey: "packmule_name") ?? "Packmule") as? String
         speedSlider.value = UserDefaults.standard.value(forKey: "max_speed") as! Float? ?? 50
@@ -61,6 +74,9 @@ class RootNavController : UITableViewController, UIPopoverPresentationController
         case 1:
             manualSwitch.setOn(!manualSwitch.isOn, animated: true)
             stateChanged(switchState: manualSwitch)
+            break;
+        case 2:
+            present(speedDialog, animated: true, completion: nil)
             break;
         default:
             break;

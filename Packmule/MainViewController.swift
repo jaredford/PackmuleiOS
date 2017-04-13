@@ -126,7 +126,7 @@ final class MainViewController: UIViewController,BluetoothSerialDelegate {
     func serialDidChangeState() {
         reloadView()
         if serial.centralManager.state != .poweredOn {
-            scene.arduinoTxt.text = "Bluetooth off"
+            //scene.arduinoTxt.text = "Bluetooth off"
             hornButton.imageView?.alpha = 0
         }
         else {
