@@ -135,6 +135,7 @@ typealias 🕹 = AnalogJoystick
 open class AnalogJoystick: SKNode {
     
     var trackingHandler: ((AnalogJoystickData) -> ())?,
+    cancelled = false,
     startHandler: (() -> Void)?,
     stopHandler: (() -> Void)?,
     substrate: AnalogJoystickSubstrate!,
@@ -204,13 +205,14 @@ open class AnalogJoystick: SKNode {
             trackingHandler?(data)
         }
     }
-    
     //MARK: - Overrides
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        cancelled = false
         if let touch = touches.first, substrate == atPoint(touch.location(in: self)) {
+            if UserDefaults.standard.bool(forKey: "manual_mode") {
+                stick.alpha = 0.8
+            }
             let location = touch.location(in: self)
-            stick.alpha = 0.8;
             let maxDistantion = substrate.radius,
             realDistantion = sqrt(pow(location.x, 2) + pow(location.y, 2)),
             needPosition = realDistantion <= maxDistantion ? CGPoint(x: location.x, y: location.y) : CGPoint(x: location.x / realDistantion * maxDistantion, y: location.y / realDistantion * maxDistantion)
@@ -239,6 +241,15 @@ open class AnalogJoystick: SKNode {
     }
     
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch: AnyObject in touches {
+            let location = touch.location(in: self.substrate)
+            
+            let maxDistantion = substrate.radius,
+            realDistantion = sqrt(pow(location.x, 2) + pow(location.y, 2))
+            if realDistantion > maxDistantion && !UserDefaults.standard.bool(forKey: "manual_mode") {
+                cancelled = true
+            }
+        }
         resetStick()
     }
     
@@ -259,6 +270,6 @@ open class AnalogJoystick: SKNode {
         stick.run(moveToBack)
         stick.alpha = 0
         data.reset()
-        stopHandler?();
+        stopHandler?()
     }
 }

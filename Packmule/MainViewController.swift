@@ -17,6 +17,7 @@ enum ReceivedMessageOption: Int {
     newline
 }
 final class MainViewController: UIViewController,BluetoothSerialDelegate {
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var hornButton: UIButton!
     @IBOutlet weak var connectButton: UIBarButtonItem!
     let myNotification = Notification.Name(rawValue:"ModeChanged")
@@ -41,8 +42,11 @@ final class MainViewController: UIViewController,BluetoothSerialDelegate {
         let view = UIView()
         view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.barStyle = .black
-        let color  = UIColor(colorLiteralRed: 0.05, green: 0.10, blue: 0.15, alpha: 1)
-        self.navigationController?.navigationBar.barTintColor = color
+        self.navigationController?.navigationBar.barTintColor = UIColorFromRGB(rgbValue: 0x3b58c7).darker(by: 20)
+        connectButton.tintColor = UIColor.white
+        menuButton.tintColor = UIColor.white	
+        //let color  = UIColor(colorLiteralRed: 0.05, green: 0.10, blue: 0.15, alpha: 1)
+        //self.navigationController?.navigationBar.barTintColor = color
         
         // Setup the joystick
         scene = JoystickScene(size: self.view.bounds.size)
@@ -75,9 +79,12 @@ final class MainViewController: UIViewController,BluetoothSerialDelegate {
         }
         if manual{
             scene.infoText.text = "Stopped"
+            scene.moveAnalogStick.substrate.color = UIColorFromRGB(rgbValue : 0xf2b807)
         }
         else{
             scene.infoText.text = "Following"
+            scene.engagedEStop = false
+            scene.moveAnalogStick.substrate.color = UIColor.green.darker(by: 20)!
         }
     }
     override var prefersStatusBarHidden : Bool {

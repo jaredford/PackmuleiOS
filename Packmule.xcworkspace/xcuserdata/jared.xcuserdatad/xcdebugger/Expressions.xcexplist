@@ -3,9 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "RootNavController.tableView(UITableView, willDisplay : UITableViewCell, forRowAt : IndexPath) -&gt; ():RootNavController.swift">
-      </ContextState>
-      <ContextState
          contextName = "MainViewController.viewDidLoad() -&gt; ():MainViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -17,10 +14,38 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "RootNavController.tableView(UITableView, didSelectRowAt : IndexPath) -&gt; ():RootNavController.swift">
+         contextName = "JoystickScene.(didMove(to : SKView) -&gt; ()).(closure #2):GameScene.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.alert.textFields?[0].text">
+               value = "UserDefaults.standard.bool(forKey: &quot;manualMode&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UIColorFromRGB(rgbValue : UInt) -&gt; UIColor:JoystickScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(rgbValue &amp; 0xFF0000) &gt;&gt; 16">
+            </PersistentString>
+            <PersistentString
+               value = "(rgbValue &amp; 0x0000FF)">
+            </PersistentString>
+            <PersistentString
+               value = "(rgbValue &amp; 0x00FF00) &gt;&gt; 8">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JoystickScene.addLabels(view : SKView) -&gt; ():JoystickScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "frame.height * 0.4">
+            </PersistentString>
+            <PersistentString
+               value = "view.layer.sublayers[4].bounds">
+            </PersistentString>
+            <PersistentString
+               value = "moveAnalogStick.bounds">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -36,12 +61,40 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "JoystickScene.(didMove(to : SKView) -&gt; ()).(closure #2):GameScene.swift">
+         contextName = "JoystickScene.(didMove(to : SKView) -&gt; ()).(closure #2):JoystickScene.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UserDefaults.standard.bool(forKey: &quot;manualMode&quot;)">
+               value = "self.eStopText.isUserInteractionEnabled">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JoystickScene.(didMove(to : SKView) -&gt; ()).(closure #1):JoystickScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "engagedEStop">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AnalogJoystick.touchesEnded(Set&lt;UITouch&gt;, with : UIEvent?) -&gt; ():AnalogJoystick.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RootNavController.tableView(UITableView, willDisplay : UITableViewCell, forRowAt : IndexPath) -&gt; ():RootNavController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RootNavController.tableView(UITableView, didSelectRowAt : IndexPath) -&gt; ():RootNavController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.alert.textFields?[0].text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "JoystickScene.touchesBegan(Set&lt;UITouch&gt;, with : UIEvent?) -&gt; ():JoystickScene.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RootNavController.(viewDidLoad() -&gt; ()).(closure #3):RootNavController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
