@@ -38,8 +38,8 @@
                                                     <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Packmule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-n7-uzl">
-                                                    <rect key="frame" x="218" y="11" width="76" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Packmule" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-n7-uzl">
+                                                    <rect key="frame" x="163" y="11" width="149" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.96303038583837564" green="0.93690025801947907" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -48,7 +48,8 @@
                                             <color key="backgroundColor" red="0.18913862109999999" green="0.2860352397" blue="0.32175087930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="bpT-n7-uzl" firstAttribute="centerY" secondItem="HYb-6b-lSs" secondAttribute="centerY" id="4xX-CF-V1Q"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="bpT-n7-uzl" secondAttribute="trailing" constant="18" id="iYV-Ar-RHP"/>
+                                                <constraint firstItem="bpT-n7-uzl" firstAttribute="centerX" secondItem="HYb-6b-lSs" secondAttribute="centerX" constant="77.5" id="WVb-sq-wyg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bpT-n7-uzl" secondAttribute="trailing" id="iYV-Ar-RHP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -67,14 +68,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="fill" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qMh-d0-Coe">
-                                                    <rect key="frame" x="229" y="7" width="51" height="31"/>
+                                                    <rect key="frame" x="213" y="7" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </switch>
                                             </subviews>
                                             <color key="backgroundColor" red="0.18913862109999999" green="0.2860352397" blue="0.32175087930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="C9S-FJ-3xT" firstAttribute="centerY" secondItem="rr1-rF-LT7" secondAttribute="centerY" id="ZwQ-Bj-J2a"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qMh-d0-Coe" secondAttribute="trailing" constant="34" id="lT2-kX-ud8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qMh-d0-Coe" secondAttribute="trailing" constant="50" id="lT2-kX-ud8"/>
                                                 <constraint firstItem="qMh-d0-Coe" firstAttribute="centerY" secondItem="rr1-rF-LT7" secondAttribute="centerY" id="m29-0e-Doj"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="C9S-FJ-3xT" secondAttribute="leading" id="q0Q-Lc-GV2"/>
                                             </constraints>
@@ -94,7 +95,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="BRp-W4-niP">
-                                                    <rect key="frame" x="196" y="6" width="118" height="31"/>
+                                                    <rect key="frame" x="181" y="6" width="118" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="114" id="19W-rv-11f"/>
                                                     </constraints>
@@ -105,7 +106,7 @@
                                                 <constraint firstItem="fXf-8D-Cag" firstAttribute="leading" secondItem="u25-vh-dzU" secondAttribute="leadingMargin" id="0uk-qS-dJB"/>
                                                 <constraint firstItem="fXf-8D-Cag" firstAttribute="centerY" secondItem="BRp-W4-niP" secondAttribute="centerY" id="G00-Fq-MQK"/>
                                                 <constraint firstItem="BRp-W4-niP" firstAttribute="bottom" secondItem="u25-vh-dzU" secondAttribute="bottomMargin" id="KJN-qP-a6X"/>
-                                                <constraint firstItem="BRp-W4-niP" firstAttribute="trailing" secondItem="u25-vh-dzU" secondAttribute="trailingMargin" id="NVE-Na-hMI"/>
+                                                <constraint firstItem="BRp-W4-niP" firstAttribute="trailing" secondItem="u25-vh-dzU" secondAttribute="trailingMargin" constant="-15" id="NVE-Na-hMI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -129,7 +130,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnT-OY-AgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2476.811594202899" y="-324.45652173913044"/>
+            <point key="canvasLocation" x="2475" y="-325.35211267605632"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="zr8-0x-SFh">
